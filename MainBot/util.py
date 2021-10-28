@@ -1,8 +1,13 @@
 import nextcord
 import random
+import json
 from nextcord.ext import commands, tasks
 from nextcord.ext.commands import has_permissions, MissingPermissions
 import asyncio as asyncio
+
+
+with open("config.json", "r") as read_file:
+    data = json.load(read_file)
 
 class util(commands.Cog):
     def __init__(self,client):

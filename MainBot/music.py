@@ -1,8 +1,11 @@
 import nextcord
+import json
 import youtube_dl
 from nextcord.ext import commands, tasks
 import asyncio as asyncio
 
+with open("config.json", "r") as read_file:
+    data = json.load(read_file)
 
 class music(commands.Cog):
     def __init__(self, client):
@@ -10,7 +13,7 @@ class music(commands.Cog):
 
     @commands.command(aliases=['Join'])
     async def join(self, ctx):
-        if (ctx.channel.id == 609958852166680586):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel!")
             voice_channel = ctx.author.voice.channel
@@ -22,8 +25,8 @@ class music(commands.Cog):
             await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
 
     @commands.command(aliases=['Play', 'p', 'P'])
-    async def play(self, ctx,url):
-        if (ctx.channel.id == 609958852166680586):
+    async def play(self, ctx, url):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel!")
             voice_channel = ctx.author.voice.channel
@@ -32,6 +35,7 @@ class music(commands.Cog):
             else:
                 await ctx.voice_client.move_to(voice_channel)
             ctx.voice_client.stop()
+
             FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options':'-vn'}
             YDL_OPTIONS = {'format':"bestaudio"}
             vc = ctx.voice_client
@@ -42,16 +46,14 @@ class music(commands.Cog):
                 vc.play(source)
             while not vc.is_done():
                 await asyncio.sleep(1)
-            # disconnect after the player has finished
             vc.stop()
-            await vc.disconnect()
         else:
             await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
 
     
     @commands.command(aliases=['Pause'])
     async def pause(self,ctx):
-        if (ctx.channel.id == 609958852166680586):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             if (ctx.voice_client):
                 await ctx.voice_client.pause()
                 await ctx.send("Paused")
@@ -63,7 +65,7 @@ class music(commands.Cog):
     
     @commands.command(aliases=['Resume'])
     async def resume(self,ctx):
-        if (ctx.channel.id == 609958852166680586):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             if (ctx.voice_client):
                 await ctx.voice_client.resume()
                 await ctx.send("Resumed")
@@ -75,7 +77,7 @@ class music(commands.Cog):
     
     @commands.command(aliases=['Stop', 'leave', 'Leave'])
     async def stop(self, ctx):
-        if (ctx.channel.id == 609958852166680586):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             if (ctx.voice_client):
                 await ctx.voice_client.disconnect()
             else:

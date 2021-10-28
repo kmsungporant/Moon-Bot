@@ -13,7 +13,10 @@ from itertools import cycle
 from nextcord.ext import commands, tasks
 
 
-client = commands.Bot(command_prefix = '.')
+with open("config.json", "r") as read_file:
+    data = json.load(read_file)
+
+client = commands.Bot(command_prefix = data["prefix"])
 
 cogs = [music, soundtracks, util, agentSelect, lastOne]
 
@@ -33,9 +36,12 @@ async def on_ready():
 async def change_status():
     await client.change_presence(activity=nextcord.Game(next(status)))
 
+
+
+
 @client.group(invoke_without_command=True)
 async def help(ctx):
-    if (ctx.channel.id == 609958852166680586):
+    if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
         em = nextcord.Embed(title = "__Commands__", description = "Use .[command] in #Bot-Commands\n")
     
         em.add_field(name = "__SoundTracks__", value = "**Beach** - Om's sheesh at the beach\n**Stef** - Stefan's laugh\n**Teddy** - Jeff praises Teddy\n**Jeff** - Jeff's \"Fix Your Mic\"\n**Jeff2** - Jeff's cry for help\n**Chris** - Christian's nut noise\n**Chris2** - Christian's \"I'm a pillow pet\"\n**Om** - Om's fudge you\n**Dan** - Dan's Bruh\n**Alan** - Alan's jump scare\n")
@@ -53,8 +59,5 @@ async def on_command_error(ctx, error):
         msg = '**Still on cooldown!** Please try again in {:.2f}s'.format(error.retry_after)
         await ctx.send(msg)
     
-    
-with open('token.txt') as f:
-    TOKEN = f.readline()
 
-client.run(TOKEN)
+client.run(data["token"])

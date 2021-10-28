@@ -1,9 +1,12 @@
 import nextcord
 import random
 import time
+import json
 from nextcord import embeds
 from nextcord.ext import commands, tasks
 
+with open("config.json", "r") as read_file:
+    data = json.load(read_file)
 
 class agentSelect(commands.Cog):
     def __init__(self, client):
@@ -12,7 +15,7 @@ class agentSelect(commands.Cog):
     @commands.command(aliases=['Agent', 'Val', 'val'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def agent(self, ctx):
-        if (ctx.channel.id == 609958852166680586):
+        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
             responses = [
                     'Astra',
                     'Breach',
