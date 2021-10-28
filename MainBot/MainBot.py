@@ -53,11 +53,13 @@ async def help(ctx):
         await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
         
 
+
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = '**Still on cooldown!** Please try again in {:.2f}s'.format(error.retry_after)
         await ctx.send(msg)
     
+
 
 client.run(data["token"])
