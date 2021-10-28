@@ -46,7 +46,7 @@ async def help(ctx):
     
         em.add_field(name = "__SoundTracks__", value = "**Beach** - Om's sheesh at the beach\n**Stef** - Stefan's laugh\n**Teddy** - Jeff praises Teddy\n**Jeff** - Jeff's \"Fix Your Mic\"\n**Jeff2** - Jeff's cry for help\n**Chris** - Christian's nut noise\n**Chris2** - Christian's \"I'm a pillow pet\"\n**Om** - Om's fudge you\n**Dan** - Dan's Bruh\n**Alan** - Alan's jump scare\n")
         em.add_field(name = "__Music__", value = "**Play** - Play youtube videos with .play [url]\n**Pause** - Pauses the youtube video\n**Resume** - Resumes the paused youtube video\n**Stop** - Disconnects the bot completely\n")
-        em.add_field(name = "__Fun__", value = "**Agent** - Selects a random agent in Valorant!\n **CoinFlip** - Flips a coin!")
+        em.add_field(name = "__Fun__", value = "**Agent** - Selects a random agent in Valorant!\n**Gun** - Selects a random gun in Valorant!\n**CoinFlip** - Flips a coin!")
         
         await ctx.send(embed = em)
     else:
