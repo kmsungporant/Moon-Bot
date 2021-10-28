@@ -17,7 +17,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['Beach'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def beach(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio("/home/minsung/DiscordBot/MainBot/soundTracks/Beach.mp3")
@@ -38,7 +38,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['Alan'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def alan(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/alan.mp3')
@@ -61,7 +61,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['chris'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Chris(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/Christian.mp3')
@@ -82,7 +82,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['chris2'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Chris2(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/Chris2.mp3')
@@ -104,7 +104,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['jeff2'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Jeff2(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/Jeff2.mp3')
@@ -126,7 +126,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['Teddy'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def teddy(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/Teddy.mp3')
@@ -149,7 +149,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['jeff'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Jeff(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/Jeff.mp3')
@@ -171,7 +171,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['stef'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Stef(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/STEF.mp3')
@@ -192,7 +192,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['om', 'OM'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Om(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/om.mp3')
@@ -213,7 +213,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['dan'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Dan(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/DanBruh.mp3')
@@ -234,7 +234,7 @@ class soundtracks(commands.Cog):
     @commands.command(pass_context = True, aliases=['depot'])
     @commands.cooldown(1,20,commands.BucketType.default)
     async def Depot(self, ctx):
-        if (ctx.channel.id == data["channel_idmoon"], data["channel_idtest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MainBot/soundTracks/depot.mp3')

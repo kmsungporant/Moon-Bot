@@ -16,7 +16,7 @@ class fun(commands.Cog):
     @commands.command(aliases=['Agent', 'Val', 'val'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def agent(self, ctx):
-        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             responses = [
                     'Astra',
                     'Breach',
@@ -45,7 +45,7 @@ class fun(commands.Cog):
     @commands.command(aliases=['Gun', 'gun', 'Gunselect'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def gunselect(self, ctx):
-        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
             responses = [
                     'Classic',
                     'Shorty',
@@ -77,7 +77,7 @@ class fun(commands.Cog):
     @commands.command(aliases=['cf', 'Coinflip', 'CoinFlip', 'Cf', 'CF'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def coinflip(self, ctx):
-        if (ctx.channel.id == data["channel_idMoon"], data["channel_idTest"]):
+        if (ctx.channel.id == 609958852166680586, 890412538460766208):
 
             determine_flip = [1, 0]
             if random.choice(determine_flip) == 1:
