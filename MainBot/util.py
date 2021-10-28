@@ -35,7 +35,7 @@ class util(commands.Cog):
             while True:
                 await asyncio.sleep(1)
                 time = time + 1
-                if voice.is_playing() and not voice.is_paused():
+                if voice.is_playing() or not voice.is_paused():
                     time = 0
                 if time == 30:
                     await voice.disconnect()

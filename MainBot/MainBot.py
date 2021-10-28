@@ -41,7 +41,7 @@ async def change_status():
 
 @client.group(invoke_without_command=True)
 async def help(ctx):
-    if (ctx.channel.id == 609958852166680586, 890412538460766208):
+    if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
         em = nextcord.Embed(title = "__Commands__", description = "Use .[command] in #Bot-Commands\n")
     
         em.add_field(name = "__SoundTracks__", value = "**Beach** - Om's sheesh at the beach\n**Stef** - Stefan's laugh\n**Teddy** - Jeff praises Teddy\n**Jeff** - Jeff's \"Fix Your Mic\"\n**Jeff2** - Jeff's cry for help\n**Chris** - Christian's nut noise\n**Chris2** - Christian's \"I'm a pillow pet\"\n**Om** - Om's fudge you\n**Dan** - Dan's Bruh\n**Alan** - Alan's jump scare\n")
