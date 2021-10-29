@@ -79,7 +79,10 @@ class music(commands.Cog):
     async def stop(self, ctx):
         if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
             if (ctx.voice_client):
-                await ctx.voice_client.disconnect()
+                if (ctx.author.voice):
+                    await ctx.voice_client.disconnect()
+                else:
+                    await ctx.send("You are not in a voice channel!")
             else:
                 await ctx.send("I'm not in a voice channel!")
         else:
