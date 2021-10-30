@@ -1,16 +1,12 @@
 import nextcord
-import random
-import json
-import time
 import aiohttp
+import config
+import asyncio as asyncio
 from nextcord.ext import commands, tasks
 from io import BytesIO
-from nextcord.ext.commands import has_permissions, MissingPermissions
-import asyncio as asyncio
+from nextcord.ext.commands import MissingPermissions
 
 
-with open("config.json", "r") as read_file:
-    data = json.load(read_file)
 
 class util(commands.Cog):
     def __init__(self,client):
@@ -96,6 +92,10 @@ class util(commands.Cog):
                 
                 except nextcord.HTTPException:
                     await ctx.send("File is too large.")
+                    
+
+# def custom_id(view: str, id: int) -> str:
+#     return f"{config.BOT_NAME}:{view}:{id}"
 
     
 

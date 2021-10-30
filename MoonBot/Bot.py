@@ -1,42 +1,35 @@
 import nextcord
-import random
-import time
-import json
 import music
 import util
 import fun
 import soundtracks
 import lastOne
-import os
+import config
 import asyncio as asyncio
 from itertools import cycle
 from nextcord.ext import commands, tasks
 
-
-with open("config.json", "r") as read_file:
-    data = json.load(read_file)
-
-client = commands.Bot(command_prefix = data["prefix"])
+client = commands.Bot(command_prefix = config.PREFIX)
 
 cogs = [music, soundtracks, util, fun, lastOne]
 
 for i in range(len(cogs)):
     cogs[i].setup(client)
 
+
 client.remove_command("help")
 status = cycle(['.help for commands', 'Moon Dogs Offical Bot'])
 
+    
 @client.event
 async def on_ready():
     change_status.start()
     print('BOT IS READY!')
-    print(f'MinBot is connected in: {len(client.guilds)} servers')
+    print(f'{(config.BOT_NAME)} is connected in: {len(client.guilds)} servers')
 
 @tasks.loop(seconds=3)
 async def change_status():
     await client.change_presence(activity=nextcord.Game(next(status)))
-
-
 
 
 @client.group(invoke_without_command=True)
@@ -59,7 +52,12 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = '**Still on cooldown!** Please try again in {:.2f}s'.format(error.retry_after)
         await ctx.send(msg)
-    
+
+@client.command()
+async def send(ctx):
+    embed = nextcord.Embed(title="Choose Role | Moon Bot", description=f"🔥 - Fire Benders\n☁️ - Air Benders\n🪨 - Earth Benders\n🌊 - Water Benders\n🔴 - Pokemon Go")
+    await ctx.send(embed=embed)
 
 
-client.run(data["token"])
+
+client.run(config.MOON_BOT_TOKEN)

@@ -6,8 +6,6 @@ from random import choice
 from nextcord import embeds
 from nextcord.ext import commands, tasks
 
-with open("config.json", "r") as read_file:
-    data = json.load(read_file)
 
 class fun(commands.Cog):
     def __init__(self, client):

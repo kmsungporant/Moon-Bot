@@ -4,9 +4,6 @@ import youtube_dl
 from nextcord.ext import commands, tasks
 import asyncio as asyncio
 
-with open("config.json", "r") as read_file:
-    data = json.load(read_file)
-
 class music(commands.Cog):
     def __init__(self, client):
         self.client = client
