@@ -1,17 +1,23 @@
 import nextcord
+from nextcord import reaction
 import music
 import util
 import fun
 import soundtracks
+import reactionRoles
 import lastOne
 import config
 import asyncio as asyncio
 from itertools import cycle
 from nextcord.ext import commands, tasks
 
-client = commands.Bot(command_prefix = config.PREFIX)
+intents = nextcord.Intents.default()
+# intents.reactions = True
+# intents.members = True
 
-cogs = [music, soundtracks, util, fun, lastOne]
+client = commands.Bot(command_prefix = config.PREFIX, intents=intents)
+
+cogs = [music, soundtracks, util, fun, lastOne, reactionRoles]
 
 for i in range(len(cogs)):
     cogs[i].setup(client)
@@ -44,8 +50,6 @@ async def help(ctx):
         await ctx.send(embed = em)
     else:
         await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
-        
-
 
 @client.event
 async def on_command_error(ctx, error):
@@ -53,10 +57,10 @@ async def on_command_error(ctx, error):
         msg = '**Still on cooldown!** Please try again in {:.2f}s'.format(error.retry_after)
         await ctx.send(msg)
 
-@client.command()
-async def send(ctx):
-    embed = nextcord.Embed(title="Choose Role | Moon Bot", description=f"🔥 - Fire Benders\n☁️ - Air Benders\n🪨 - Earth Benders\n🌊 - Water Benders\n🔴 - Pokemon Go")
-    await ctx.send(embed=embed)
+
+        
+
+
 
 
 
