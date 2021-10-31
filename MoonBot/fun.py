@@ -6,6 +6,8 @@ import config
 from random import choice
 from nextcord import embeds
 from nextcord.ext import commands, tasks
+from nextcord.player import FFmpegAudio, FFmpegPCMAudio
+import asyncio as asyncio
 
 
 class fun(commands.Cog):
@@ -113,14 +115,19 @@ class fun(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel! Join a voice channel and try again in 30s")
-            voice_channel = ctx.author.voice.channel
+            voice = ctx.author.voice.channel
             if ctx.voice_client is None:
-                await voice_channel.connect()
+                await voice.connect()
             else:
-                await ctx.voice_client.move_to(voice_channel)
+                await ctx.voice_client.move_to(voice)
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3')
+            player = voice.play(source)
             await ctx.send("Last One game has been **initiated**")
             self.last = True
-            self.current_channel = voice_channel
+            self.current_channel = voice
+            voice = ctx.channel.guild.voice_client
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3') 
+            player = voice.play(source)
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
 
@@ -130,15 +137,20 @@ class fun(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel! Join a voice channel and try again in 30s")
-            voice_channel = ctx.author.voice.channel
-            if ctx.voice_client is None:
-                await voice_channel.connect()
-            else:
-                await ctx.voice_client.move_to(voice_channel)
 
+            voice = ctx.author.voice.channel
+
+            if ctx.voice_client is None:
+                await voice.connect()
+            else:
+                await ctx.voice_client.move_to(voice)
             await ctx.send("First One Game has been **initiated**")
             self.first = True
-            self.current_channel = voice_channel
+            self.current_channel = voice            
+            voice = ctx.channel.guild.voice_client
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/firstOne.mp3') 
+            player = voice.play(source)
+
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
 
