@@ -1,6 +1,7 @@
 import nextcord
 import json
 import youtube_dl
+import config
 from nextcord.ext import commands, tasks
 import asyncio as asyncio
 
@@ -10,7 +11,7 @@ class music(commands.Cog):
 
     @commands.command(aliases=['Join'])
     async def join(self, ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel!")
             voice_channel = ctx.author.voice.channel
@@ -23,7 +24,7 @@ class music(commands.Cog):
 
     @commands.command(aliases=['Play', 'p', 'P'])
     async def play(self, ctx, url):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel!")
             voice_channel = ctx.author.voice.channel
@@ -50,7 +51,7 @@ class music(commands.Cog):
     
     @commands.command(aliases=['Pause'])
     async def pause(self,ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if (ctx.voice_client):
                 await ctx.voice_client.pause()
                 await ctx.send("Paused")
@@ -62,7 +63,7 @@ class music(commands.Cog):
     
     @commands.command(aliases=['Resume'])
     async def resume(self,ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if (ctx.voice_client):
                 await ctx.voice_client.resume()
                 await ctx.send("Resumed")
@@ -74,7 +75,7 @@ class music(commands.Cog):
     
     @commands.command(aliases=['Stop', 'leave', 'Leave'])
     async def stop(self, ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if (ctx.voice_client):
                 if (ctx.author.voice):
                     await ctx.voice_client.disconnect()

@@ -40,12 +40,12 @@ async def change_status():
 
 @client.group(invoke_without_command=True)
 async def help(ctx):
-    if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
-        em = nextcord.Embed(title = "__Commands__", description = "Use .[command] in #Bot-Commands\n")
+    if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
+        em = nextcord.Embed(title = "__Commands__", description = "Use .[command] in only #Bot-Commands\n")
     
         em.add_field(name = "__SoundTracks__", value = "**Beach** - Om's sheesh at the beach\n**Stef** - Stefan's laugh\n**Teddy** - Jeff praises Teddy\n**Jeff** - Jeff's \"Fix Your Mic\"\n**Jeff2** - Jeff's cry for help\n**Chris** - Christian's nut noise\n**Chris2** - Christian's \"I'm a pillow pet\"\n**Om** - Om's fudge you\n**Dan** - Dan's Bruh\n**Alan** - Alan's jump scare\n")
-        em.add_field(name = "__Music__", value = "**Play** - Play youtube videos with .play [url]\n**Pause** - Pauses the youtube video\n**Resume** - Resumes the paused youtube video\n**Stop** - Disconnects the bot completely\n")
-        em.add_field(name = "__Fun__", value = "**Agent** - Selects a random agent in Valorant!\n**Gun** - Selects a random gun in Valorant!\n**CoinFlip** - Flips a coin!")
+        em.add_field(name = "__Music__", value = "**Play** - Play youtube videos with __.play [url]__\n**Pause** - Pauses the youtube video\n**Resume** - Resumes the paused youtube video\n**Stop** - Disconnects the bot completely\n")
+        em.add_field(name = "__Fun__", value = "**Agent** - Selects a random agent in Valorant!\n**Gun** - Selects a random gun in Valorant!\n**CoinFlip** - Flips a coin!\n**Clutch** - Deafens the pinged user for 45s __.clutch [@name]__ (Hour cooldown)")
         
         await ctx.send(embed = em)
     else:
@@ -54,7 +54,7 @@ async def help(ctx):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        msg = '**Still on cooldown!** Please try again in {:.2f}s'.format(error.retry_after)
+        msg = '**Still on cooldown!** Available in __{:.1f}__ minutes'.format(error.retry_after/60)
         await ctx.send(msg)
 
 

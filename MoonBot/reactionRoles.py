@@ -13,7 +13,7 @@ class reactionRoles(commands.Cog):
     async def roles(self, ctx):
         embed = nextcord.Embed(title = "Role Selection | Moon Bot", description = "Click on the emojis to add/remove roles!\n")
         embed.add_field(name = "__Nations__", value = "Fire Benders 🔥\nAir Benders 💨\nEarth Benders 🪨\nWater Benders 🌊")
-        embed.add_field(name = "__other__", value = "Pokemon Go 🔴")
+        embed.add_field(name = "__Other__", value = "Pokemon Go 🔴")
         msg = await ctx.send(embed=embed)
         self.messageId = msg.id
         await msg.add_reaction("🔥")

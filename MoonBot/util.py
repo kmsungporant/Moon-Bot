@@ -1,6 +1,7 @@
 import nextcord
 import aiohttp
 import config
+import time
 import asyncio as asyncio
 from nextcord.ext import commands, tasks
 from io import BytesIO
@@ -47,7 +48,7 @@ class util(commands.Cog):
     @commands.command(pass_context = True, aliases=['Poll'])
     @commands.cooldown(1,20,commands.BucketType.user)
     async def poll(self, ctx, question, *options: str):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if len(options) <= 1:
                 await ctx.send('You need more than one option to make a poll!')
             elif len(options) > 10:
@@ -93,8 +94,22 @@ class util(commands.Cog):
                 except nextcord.HTTPException:
                     await ctx.send("File is too large.")
 
+    @commands.command(pass_context = True, aliases=['clutch', 'c'])
+    @commands.cooldown(1,3600,commands.BucketType.user)
+    async def Clutch(self, ctx, pinged: nextcord.Member):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
+            if (pinged.voice.channel.id == ctx.author.voice.channel.id):
+                await pinged.edit(deafen=True)
+                await ctx.send(f"<@{pinged.id}> is now in **clutch mode** and will be **undeafened** in **45s**.")
+                await asyncio.sleep(45)
+                await pinged.edit(deafen=False)
+                await ctx.send(f"<@{pinged.id}> is now **undeafened** welcome back.")
+            else:
+                await ctx.send(f"You are not in the same voice channel as <@{pinged.id}>!")
+            
+        else:
+            await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
     
-                    
 
 
 

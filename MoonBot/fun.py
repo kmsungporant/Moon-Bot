@@ -1,7 +1,9 @@
+import asyncio
 import nextcord
 import random
 import time
 import json
+import config
 from random import choice
 from nextcord import embeds
 from nextcord.ext import commands, tasks
@@ -14,7 +16,7 @@ class fun(commands.Cog):
     @commands.command(aliases=['Agent', 'Val', 'val'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def agent(self, ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             responses = [
                     'Astra',
                     'Breach',
@@ -37,13 +39,13 @@ class fun(commands.Cog):
             await ctx.send(embed=embed)
         else:
             msg = await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
-            time.sleep(1)
+            await asyncio.sleep(1)
             await msg.delete()
 
     @commands.command(aliases=['Gun', 'gun', 'Gunselect'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def gunselect(self, ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             responses = [
                     'Classic',
                     'Shorty',
@@ -67,7 +69,7 @@ class fun(commands.Cog):
             await ctx.send(embed=embed)
         else:
             msg = await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
-            time.sleep(1)
+            await asyncio.sleep(1)
             await msg.delete()
 
     
@@ -75,7 +77,7 @@ class fun(commands.Cog):
     @commands.command(aliases=['cf', 'Coinflip', 'CoinFlip', 'Cf', 'CF'])
     @commands.cooldown(1,10,commands.BucketType.user)
     async def coinflip(self, ctx):
-        if (ctx.channel.id == 609958852166680586 or ctx.channel.id == 890412538460766208):
+        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
 
             determine_flip = [1, 0]
             if random.choice(determine_flip) == 1:
@@ -87,7 +89,7 @@ class fun(commands.Cog):
                 await ctx.send(embed=embed)
         else:
             msg = await ctx.send("You can't use this in this channel. Use it in **#Bot-Commands**.")
-            time.sleep(1)
+            await asyncio.sleep(1)
             await msg.delete()
 
 def setup(client):
