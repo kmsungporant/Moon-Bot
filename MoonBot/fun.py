@@ -110,7 +110,7 @@ class fun(commands.Cog):
                 self.first = False
 
     @commands.command(aliases=['lastOne', 'last', 'Last'])
-    @commands.cooldown(1,30,commands.BucketType.default)
+    @commands.cooldown(1,600,commands.BucketType.default)
     async def LastOne(self, ctx):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
@@ -132,7 +132,7 @@ class fun(commands.Cog):
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
 
     @commands.command(aliases=['firstOne', 'first', 'First'])
-    @commands.cooldown(1,30,commands.BucketType.default)
+    @commands.cooldown(1,600,commands.BucketType.default)
     async def FirstOne(self, ctx):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
