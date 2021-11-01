@@ -48,7 +48,7 @@ async def help(ctx):
         em.add_field(
             name="__Music__", value="**Play** - Play youtube videos with __.play [url]__\n**Pause** - Pauses the youtube video\n**Resume** - Resumes the paused youtube video\n**Stop** - Disconnects the bot completely\n")
         em.add_field(
-            name="__Fun__", value="**Agent** - Selects a random agent in Valorant!\n**Gun** - Selects a random gun in Valorant!\n**CoinFlip** - Flips a coin!\n**Clutch** - Deafens the pinged user for 45s __.clutch [@name]__ (Hour cooldown)\n**LastOne** - Plays the \"Last one that leave is G*Y game\"\n**FirstOne** - Plays the \"First one that leave is G*Y game\"")
+            name="__Fun__", value="**Agent** - Selects a random agent in Valorant!\n**Gun** - Selects a random gun in Valorant!\n**CoinFlip** - Flips a coin!\n**Clutch** - Deafens the pinged user for 45s __.clutch [@name]__ (Hour cooldown)\n**LastOne** - Plays the \"Last one that leave is GAY game\"\n**FirstOne** - Plays the \"First one that leave is GAY game\"")
 
         await ctx.send(embed=em)
     else:
@@ -63,24 +63,7 @@ async def on_command_error(ctx, error):
         await msg.delete()
 
 
-@commands.Cog.listener()
-async def on_voice_state_update(self, member, before, after):
 
-    if not member.id == self.client.user.id:
-        return
-
-    elif before.channel is None:
-        voice = after.channel.guild.voice_client
-        time = 0
-        while True:
-            await asyncio.sleep(1)
-            time = time + 1
-            if voice.is_playing() and not voice.is_paused():
-                time = 0
-            if time == 30:
-                await voice.disconnect()
-            if not voice.is_connected():
-                break
 
 
 client.run(config.MOON_BOT_TOKEN)

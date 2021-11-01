@@ -103,6 +103,7 @@ class fun(commands.Cog):
                 channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
                 await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
                 self.last = False
+
         if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
             if member.id != config.MOON_BOT_ID:
                 channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
@@ -115,19 +116,19 @@ class fun(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             if ctx.author.voice is None:
                 await ctx.send("You are not in a voice channel! Join a voice channel and try again in 30s")
+
             voice = ctx.author.voice.channel
+
             if ctx.voice_client is None:
                 await voice.connect()
             else:
                 await ctx.voice_client.move_to(voice)
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3')
-            player = voice.play(source)
-            await ctx.send("Last One game has been **initiated**")
+            await ctx.send("The game, Last One is gay, has been **initiated**")
             self.last = True
-            self.current_channel = voice
-            voice = ctx.channel.guild.voice_client
+            self.current_channel = voice            
+            voiceplay = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3') 
-            player = voice.play(source)
+            player = voiceplay.play(source)
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
 
@@ -144,17 +145,16 @@ class fun(commands.Cog):
                 await voice.connect()
             else:
                 await ctx.voice_client.move_to(voice)
-            await ctx.send("First One Game has been **initiated**")
+            await ctx.send("The game, First One is gay, has been **initiated**")
             self.first = True
             self.current_channel = voice            
-            voice = ctx.channel.guild.voice_client
+            voiceplay = ctx.channel.guild.voice_client
             source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/firstOne.mp3') 
-            player = voice.play(source)
+            player = voiceplay.play(source)
 
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
 
-    
 
     
 
