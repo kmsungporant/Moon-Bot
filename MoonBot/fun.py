@@ -95,42 +95,38 @@ class fun(commands.Cog):
             msg = await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
             await asyncio.sleep(1)
             await msg.delete()
-
-    @commands.Cog.listener()
-    async def on_voice_state_update(self, member, before, after):
-        if self.last and before.channel.id == self.current_channel.id:
-            if not before.channel.members or (len(before.channel.members) == 1 and member.id != config.MOON_BOT_ID):
-                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
-                await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
-                self.last = False
-
-        if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
-            if member.id != config.MOON_BOT_ID:
-                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
-                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
-                self.first = False
-
+    
+                
     @commands.command(aliases=['lastOne', 'last', 'Last'])
     @commands.cooldown(1,600,commands.BucketType.default)
     async def LastOne(self, ctx):
-        if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
-            if ctx.author.voice is None:
-                await ctx.send("You are not in a voice channel! Join a voice channel and try again in 30s")
+        await ctx.send("Sorry, **'last one is gay'** command is not currently functioning properly. Try again later...")
+        # if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
+        #     if ctx.author.voice is None:
+        #         await ctx.send("You are not in a voice channel! Join a voice channel and try again in 30s")
 
-            voice = ctx.author.voice.channel
+        #     voice = ctx.author.voice.channel
 
-            if ctx.voice_client is None:
-                await voice.connect()
-            else:
-                await ctx.voice_client.move_to(voice)
-            await ctx.send("The game, Last One is gay, has been **initiated**")
-            self.last = True
-            self.current_channel = voice            
-            voiceplay = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3') 
-            player = voiceplay.play(source)
-        else:
-            await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
+        #     if ctx.voice_client is None:
+        #         await voice.connect()
+        #     else:
+        #         await ctx.voice_client.move_to(voice)
+        #     await ctx.send("The game, Last One is gay, has been **initiated**")
+        #     self.last = True
+        #     self.current_channel = voice            
+        #     voiceplay = ctx.channel.guild.voice_client
+        #     source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3') 
+        #     player = voiceplay.play(source)
+        # else:
+        #     await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
+        
+    @commands.Cog.listener()
+    async def on_voice_state_update_last(self, member, before, after):
+        if self.last and before.channel.id == self.current_channel.id:
+            if (len(before.channel.members) == 1 and member.id != config.MOON_BOT_ID):
+                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
+                await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
+                self.last = False
 
     @commands.command(aliases=['firstOne', 'first', 'First'])
     @commands.cooldown(1,600,commands.BucketType.default)
@@ -154,6 +150,13 @@ class fun(commands.Cog):
 
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
+    @commands.Cog.listener()
+    async def on_voice_state_update_first(self, member, before, after):
+        if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
+            if member.id != config.MOON_BOT_ID:
+                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
+                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
+                self.first = False
 
 
     
