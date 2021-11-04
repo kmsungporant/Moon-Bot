@@ -125,13 +125,13 @@ class fun(commands.Cog):
         if self.last and before.channel.id == self.current_channel.id:
             if (len(before.channel.members) == 1 and member.id != config.MOON_BOT_ID):
                 channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
-                await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
+                await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> lost!")
                 self.last = False
                 
         if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
             if member.id != config.MOON_BOT_ID:
                 channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
-                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
+                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> lost!")
                 self.first = False
 
 
