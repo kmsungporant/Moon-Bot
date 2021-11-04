@@ -115,18 +115,25 @@ class fun(commands.Cog):
         #     self.last = True
         #     self.current_channel = voice            
         #     voiceplay = ctx.channel.guild.voice_client
-        #     source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/lastOne.mp3') 
+        #     source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/lastOne.mp3') 
         #     player = voiceplay.play(source)
         # else:
         #     await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
         
     @commands.Cog.listener()
-    async def on_voice_state_update_last(self, member, before, after):
+    async def on_voice_state_update(self, member, before, after):
         if self.last and before.channel.id == self.current_channel.id:
             if (len(before.channel.members) == 1 and member.id != config.MOON_BOT_ID):
                 channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
                 await channel.send(f"<@{member.id}> left last, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
                 self.last = False
+                
+        if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
+            if member.id != config.MOON_BOT_ID:
+                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
+                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
+                self.first = False
+
 
     @commands.command(aliases=['firstOne', 'first', 'First'])
     @commands.cooldown(1,600,commands.BucketType.default)
@@ -145,18 +152,12 @@ class fun(commands.Cog):
             self.first = True
             self.current_channel = voice            
             voiceplay = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/firstOne.mp3') 
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/firstOne.mp3') 
             player = voiceplay.play(source)
 
         else:
             await ctx.send(f"You can't use this in this channel. Use it in <#{config.BOT_COMMAND_CHANNEL_ID}>.")
-    @commands.Cog.listener()
-    async def on_voice_state_update_first(self, member, before, after):
-        if self.first and before.channel.id == self.current_channel.id and (not after.channel or after.channel.id != self.current_channel.id):
-            if member.id != config.MOON_BOT_ID:
-                channel = nextcord.utils.get(member.guild.text_channels, id=config.BOT_COMMAND_CHANNEL_ID)
-                await channel.send(f"<@{member.id}> left first, therefore, <@{member.id}> {random.choice(['is gay lol 🦄🌈✨', 'is non heterosexual 🚫👩‍❤️‍👨'])}")
-                self.first = False
+    
 
 
     

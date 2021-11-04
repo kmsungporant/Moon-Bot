@@ -18,7 +18,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Beach.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Beach.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -39,7 +39,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/alan.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/alan.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -60,7 +60,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Christian.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Christian.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -81,7 +81,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Chris2.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Chris2.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -102,7 +102,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Jeff2.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Jeff2.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -123,7 +123,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Teddy.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Teddy.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -144,7 +144,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/Jeff.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/Jeff.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -165,7 +165,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/STEF.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/STEF.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -186,7 +186,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/om.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/om.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -207,7 +207,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/DanBruh.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/DanBruh.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
@@ -228,7 +228,7 @@ class soundtracks(commands.Cog):
         if (ctx.channel.id == config.BOT_COMMAND_CHANNEL_ID or ctx.channel.id == config.BOT_TESTING_CHANNEL_ID):
             channel = ctx.message.author.voice.channel
             voice = ctx.channel.guild.voice_client
-            source = FFmpegPCMAudio('/home/minsung/DiscordBot/MoonBot/soundTracks/depot.mp3')
+            source = FFmpegPCMAudio('/home/minsung/DiscordBot/soundTracks/depot.mp3')
             if (ctx.author.voice):
                 if voice is None:
                     voice = await channel.connect()
