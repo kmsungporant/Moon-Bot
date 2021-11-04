@@ -2,12 +2,12 @@
 
 A discord bot created - Minsung Kim
 
-## Purpose 
+### Purpose 
 This bot called "Moon Bot" was created for a small discord community amongst a group of friends. 
 Does various tasks that is all custom made and adjusted to our needs. 
 Some files will not be included for privacy reasons. (MP3 files)
 
-### Commands 
+## Commands 
 
 **SoundTracks -** 
 
@@ -20,14 +20,14 @@ Some files will not be included for privacy reasons. (MP3 files)
 > Chris2 - Christian's "I'm a pillow pet"\
 > Om - Om's fudge you\
 > Dan - Dan's Bruh\
-> Alan - Alan's jump scare\
+> Alan - Alan's jump scare
 
 **Music -**
 
 > Play - Play youtube videos with .play [url]\
 > Pause - Pauses the youtube video\
 > Resume - Resumes the paused youtube video\
-> Stop - Disconnects the bot completely\
+> Stop - Disconnects the bot completely
 
 **Fun -**
 
@@ -35,11 +35,10 @@ Some files will not be included for privacy reasons. (MP3 files)
 > Gun - Selects a random gun in Valorant!\
 > CoinFlip - Flips a coin!\
 > Clutch - Deafens the pinged user for 45s .clutch [@name] (Hour cooldown)\
-> LastOne - Plays the "Last one that leave is GAY game"\
-> FirstOne - Plays the "First one that leave is GAY game"\
+> LastOne - Plays the "Last one that leave loses game"\
+> FirstOne - Plays the "First one that leave loses game"
 
+## Usage
 
-### Usage
-
-Feel free to use any of the code as most of the code was from watching YouTube and adding a twist along with it. 
+Feel free to use any of the code as most of the code was from watching YouTube and adding a twist along with it.\
 It is all the same concept but for my likely and for the small private server. 
