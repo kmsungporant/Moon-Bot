@@ -38,7 +38,3 @@ Some files will not be included for privacy reasons. (MP3 files)
 > LastOne - Plays the "Last one that leave loses game"\
 > FirstOne - Plays the "First one that leave loses game"
 
-## Usage
-
-Feel free to use any of the code as most of the code was from watching YouTube and adding a twist along with it.\
-It is all the same concept but for my likely and for the small private server. 
